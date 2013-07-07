@@ -230,7 +230,8 @@ pip-log.txt
 /Library/cache/
 /Library/previews/
 /Library/ScriptAssemblies
-#/Library/
+/Library/metadata/
+/Library/assetDatabase3
 /obj
 /Temp/
 #Temp
