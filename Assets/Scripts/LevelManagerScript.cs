@@ -4,6 +4,8 @@ using System.Collections;
 public class LevelManagerScript : MonoBehaviour
 {
     public string[] Levels;
+    public string winLevel;
+    public string loseLevel;
 
     // Use this for initialization
     void Start()
