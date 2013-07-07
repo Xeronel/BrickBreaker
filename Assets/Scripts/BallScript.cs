@@ -32,12 +32,6 @@ public class BallScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Mathf.Abs(rigidbody.velocity.normalized.x) == 1 && Mathf.Abs(rigidbody.velocity.normalized.y) == 0)
-        {
-            rigidbody.AddForce(new Vector3(rigidbody.velocity.x, 100f, 0f));
-            Debug.Log(rigidbody.velocity);
-        }
-
         if (rigidbody.velocity.sqrMagnitude > maxMagnitude)
             rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
     }

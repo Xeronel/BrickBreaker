@@ -3,14 +3,17 @@ using System.Collections;
 
 public class BrickScript : MonoBehaviour
 {
-    public int Life = 1;
+    static int numBricks = 0;
     public int pointValue = 1;
+    public int hitPoints = 1;
 
     Color[] colors = new Color[1];
 
     // Use this for initialization
     void Start()
     {
+        numBricks++;
+        Debug.Log(numBricks);
         colors[0] = Color.red;
     }
 
@@ -21,16 +24,21 @@ public class BrickScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        hitPoints--;
 
-        Life--;
-        if (Life > 0)
-            renderer.material.color = colors[Life - 1];
+        if (hitPoints > 0)
+            renderer.material.color = colors[hitPoints - 1];
 
-        if (Life <= 0)
+        if (hitPoints <= 0)
         {
             Destroy(gameObject);
             GameObject.Find("Paddle").GetComponent<PaddleScript>().AddPoint(pointValue);
+            numBricks--;
         }
 
+        if (numBricks == 0)
+        {
+            Application.LoadLevel("Level02");
+        }
     }
 }
