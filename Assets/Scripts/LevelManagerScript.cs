@@ -13,7 +13,7 @@ public class LevelManagerScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         if (Levels == null)
-            Debug.Log("Levels cannot be null");
+            Debug.LogError("Levels cannot be null");
 
     }
 
