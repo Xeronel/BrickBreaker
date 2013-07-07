@@ -224,7 +224,7 @@ pip-log.txt
 *.userprefs
 *.csproj
 *.pidb
-*.unityproj
+#*.unityproj
 .DS_Store
 #/Library/FailedAssetImports.txt
 #/Library/cache/
@@ -232,5 +232,5 @@ pip-log.txt
 #/Library/ScriptAssemblies
 /Library/
 /obj
-/Temp
-Temp
+/Temp/
+#Temp
