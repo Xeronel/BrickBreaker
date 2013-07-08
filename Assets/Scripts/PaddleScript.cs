@@ -95,7 +95,7 @@ public class PaddleScript : MonoBehaviour
         if (lives > 0)
             SpawnBall();
         else
-            Application.LoadLevel("GameOver");
+            GameObject.Find("LevelManager").GetComponent<LevelManagerScript>().LoadGameOver();
     }
 
     public void SpawnBall()
@@ -113,7 +113,6 @@ public class PaddleScript : MonoBehaviour
 
     public void Die()
     {
-        Destroy(attachdBall);
         Destroy(gameObject);
     }
 

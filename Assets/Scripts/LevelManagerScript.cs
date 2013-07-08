@@ -50,10 +50,19 @@ public class LevelManagerScript : MonoBehaviour
         if (currentLevel < Levels.Length)
             Application.LoadLevel(Levels[currentLevel]);
         else
-        {
-            GameObject.Find("Paddle").GetComponent<PaddleScript>().Die();
-            Application.LoadLevel(winLevel);
-        }
+            LoadWinLevel();
 
+    }
+
+    public void LoadWinLevel()
+    {
+        GameObject.Find("Paddle").GetComponent<PaddleScript>().Die();
+        Application.LoadLevel(winLevel);
+    }
+
+    public void LoadGameOver()
+    {
+        GameObject.Find("Paddle").GetComponent<PaddleScript>().Die();
+        Application.LoadLevel(loseLevel);
     }
 }
