@@ -19,18 +19,21 @@ public class PaddleScript : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        SpawnBall();
+        //SpawnBall();
         paddleBounds = (GameObject.Find("Plane").GetComponent<Collider>().bounds.size.x - collider.bounds.size.x) / 2;
+
+        Debug.Log("Level started");
     }
 
     public void OnLevelWasLoaded(int level)
     {
         SpawnBall();
-
+        
         string levelName = Application.loadedLevelName;
         if (levelName != "GameOver" && levelName != "GameWon")
             paddleBounds = (GameObject.Find("Plane").GetComponent<Collider>().bounds.size.x - collider.bounds.size.x) / 2;
 
+        Debug.Log("Level loaded");
     }
 
     // Update is called once per frame
@@ -105,6 +108,7 @@ public class PaddleScript : MonoBehaviour
 
         //Spawn ball
         attachdBall = (GameObject)Instantiate(ballPrefab, transform.position + new Vector3(0f, 0.75f, 0f), Quaternion.identity);
+        Debug.Log("Ball spawned");
     }
 
     public void Die()

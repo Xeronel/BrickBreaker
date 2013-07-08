@@ -38,7 +38,7 @@ public class BrickScript : MonoBehaviour
 
         if (numBricks == 0)
         {
-            Application.LoadLevel("Level02");
+            GameObject.Find("LevelManager").GetComponent<LevelManagerScript>().NextLevel();
         }
     }
 }

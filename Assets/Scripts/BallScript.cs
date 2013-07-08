@@ -24,7 +24,7 @@ public class BallScript : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        AudioSource.PlayClipAtPoint(blipAudio[Random.Range(0, blipAudio.Length)], transform.position, 1f);
+        AudioSource.PlayClipAtPoint(blipAudio[Random.Range(0, blipAudio.Length)], transform.position, 0.5f);
 
         rigidbody.AddForce(rigidbody.velocity.normalized.x * 100f, rigidbody.velocity.y, 0, ForceMode.Force);
         rigidbody.AddForce(rigidbody.velocity.x, rigidbody.velocity.normalized.y * 100f, 0, ForceMode.Force);
@@ -34,6 +34,9 @@ public class BallScript : MonoBehaviour
     {
         if (rigidbody.velocity.sqrMagnitude > maxMagnitude)
             rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
+
+        //Add a check to make sure the ball is within the level bounds
+        //if it is not move it back within the bounds
     }
 
     public void Die()
